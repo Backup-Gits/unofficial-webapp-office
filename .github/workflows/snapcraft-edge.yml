@@ -16,11 +16,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Upgrade Snapcraft Docker container to Bionic to get qml-module-qtwebengine
-      run: |
-        sudo sed -i 's/bionic/focal/g' /etc/apt/sources.list
-        sudo apt update
-        sudo apt upgrade -y
     - name: Build .snap
       run: |
         snapcraft    
