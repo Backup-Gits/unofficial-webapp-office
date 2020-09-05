@@ -18,12 +18,13 @@ parts:
     plugin: make
     make-parameters: ["FLAVOR=qt5"]
 
-  icloud-for-linux:
+  unofficial-webapp-office:
     after: [desktop-qt5]
     source: .
     plugin: qmake
     build-packages:
       - qtdeclarative5-dev
+      - g++
     stage-packages:
       - qmlscene
       - qml-module-qtquick2
