@@ -16,13 +16,23 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build .snap
-      run: |
-        snapcraft
-    - name: Push .snap to Snapcraft.io
+    - name: Build snap on Launchpad using remote-build
+      env:
+        REMOTE_BUILD_CREDENTIALS: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
+      run: |        
+        mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
+        echo ${REMOTE_BUILD_CREDENTIALS} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+        cd nightly
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el,arm64,armhf,amd64,i386
+    - name: Upload snap to Snap Store
       env:
         SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
       run: |
         mkdir .snapcraft
         echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
-        snapcraft push --release=edge *.snap
+        ARCHS="ppc64el arm64 armhf amd64 i386"
+        for ARCH in ${ARCHS}; do
+          snapcraft upload --release=edge *${ARCH}.snap || continue
+        done
