@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build .snap
       run: |
-        snapcraft    
+        snapcraft
     - name: Push .snap to Snapcraft.io
       env:
         SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
