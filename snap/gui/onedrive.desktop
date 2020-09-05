@@ -1,10 +1,10 @@
 [Desktop Entry]
-Version=0.1
+Version=0.8
 Name=OneDrive
 GenericName=OneDrive
 Comment=OneDrive
 Type=Application
-Icon=${SNAP}/snap/gui/onedrive.png
+Icon=${SNAP}/snap/meta/onedrive.png
 Exec=unofficial-webapp-office.onedrive
 Terminal=false
 Keywords=OneDrive,files,cloud,photos

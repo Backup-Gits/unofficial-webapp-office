@@ -1,6 +1,6 @@
 import QtQuick 2.9
-import QtQuick.Window 2.3
 import QtQuick.Controls 1.0
+import QtQuick.Window 2.3
 import QtWebEngine 1.5
 
 Window {
@@ -12,8 +12,8 @@ Window {
   WebEngineView {
     id: windowParent
     anchors.fill: parent
-    zoomFactor: 1.0
-    
+    zoomFactor: 0.8
+
     Action {
         shortcut: "Ctrl+-"
         onTriggered: windowParent.zoomFactor -= 0.1;
@@ -27,12 +27,9 @@ Window {
         onTriggered: windowParent.zoomFactor += 0.1;
     }
 
-
     url: Qt.application.arguments[1]
 
-    // This whole section needs to be re-structured into something easier to maintain:
-    
-    onNewViewRequested: function(request) {
+onNewViewRequested: function(request) {
       if (request.requestedUrl.toString().includes('live.com')) {
         var newWindow = windowComponent.createObject(windowParent);
         newWindow.webView.zoomFactor = windowParent.zoomFactor / 0.8
@@ -79,6 +76,9 @@ Window {
       }    
     }
 
+    // Commenting this out for now as it breaks scrolling
+    // profile.httpUserAgent: "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:71.0) Gecko/20100101 Firefox/71.0"
+
     profile.onDownloadRequested: function(download) {
       download.accept();
     }
@@ -97,7 +97,7 @@ Window {
     WebEngineView {
       id: webView_
       anchors.fill: parent
-      
+
       Action {
           shortcut: "Ctrl+-"
           onTriggered: webView_.zoomFactor -= 0.1;
@@ -109,8 +109,7 @@ Window {
       Action {
           shortcut: "Ctrl+="
           onTriggered: webView_.zoomFactor += 0.1;
-      }      
-      
+      }
     }
   }
 }

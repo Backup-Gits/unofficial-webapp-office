@@ -1,10 +1,10 @@
 [Desktop Entry]
-Version=0.1
+Version=0.8
 Name=PowerPoint
 GenericName=PowerPoint
 Comment=PowerPoint
 Type=Application
-Icon=${SNAP}/snap/gui/powerpoint.png
+Icon=${SNAP}/snap/meta/powerpoint.png
 Exec=unofficial-webapp-office.powerpoint
 Terminal=false
 Keywords=PowerPoint,presentation,ppt

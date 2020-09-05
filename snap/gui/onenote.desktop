@@ -1,10 +1,10 @@
 [Desktop Entry]
-Version=0.1
+Version=0.8
 Name=OneNote
 GenericName=OneNote
 Comment=OneNote
 Type=Application
-Icon=${SNAP}/snap/gui/onenote.png
+Icon=${SNAP}/snap/meta/onenote.png
 Exec=unofficial-webapp-office.onenote
 Terminal=false
 Keywords=OneNote,note,notes,notepad

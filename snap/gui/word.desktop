@@ -1,10 +1,10 @@
 [Desktop Entry]
-Version=0.1
+Version=0.8
 Name=Word
 GenericName=Word
 Comment=Word
 Type=Application
-Icon=${SNAP}/snap/gui/word.png
+Icon=${SNAP}/meta/gui/word.png
 Exec=unofficial-webapp-office.word
 Terminal=false
 Keywords=Word,document,doc

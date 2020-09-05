@@ -1,10 +1,10 @@
 [Desktop Entry]
-Version=0.1
+Version=0.8
 Name=Outlook
 GenericName=Outlook
 Comment=Outlook
 Type=Application
-Icon=${SNAP}/snap/gui/outlook.png
+Icon=${SNAP}/snap/meta/outlook.png
 Exec=unofficial-webapp-office.outlook
 Terminal=false
 Keywords=Outlook,mail,email,calendar,contacts

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>unofficial-webapp-office.qml</file>
+    </qresource>
+</RCC>
